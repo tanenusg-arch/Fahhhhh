@@ -1,0 +1,36 @@
+services:
+  - type: worker
+    name: fullwhssstask-bot
+    runtime: python
+    plan: starter
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: python fullwhssstask.py
+    disk:
+      name: bot-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: DATA_DIR
+        value: /var/data
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: PHONE
+        sync: false
+      - key: ADMIN_CHAT_ID
+        sync: false
+      - key: SESSION_NAME
+        value: relay_session
+      - key: PROV_BOT
+        value: WStaskbot
+      - key: BOT_USERNAME
+        value: Whstask_bot
+      - key: TELETHON_SESSION_B64
+        sync: false
+      - key: TEST_MODE
+        value: "false"

@@ -1,0 +1,12 @@
+# Secrets and local state
+*.session
+*.session-journal
+balances.json
+wallets.json
+invites.json
+users.json
+history.json
+queue.json
+__pycache__/
+*.pyc
+.env

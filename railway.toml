@@ -1,0 +1,12 @@
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "python fullwhssstask.py"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+# Persistent volume for JSON state + Telethon .session
+[[mounts]]
+source = "bot-data"
+target = "/data"
